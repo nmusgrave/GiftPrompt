@@ -174,13 +174,13 @@ and (max-width : 1024px) {
 @media only screen 
 and (min-width : 1023px) {
 	body {
-		margin-left: 50%;
-		margin-right: 20%;
+		margin-left: 0%;
+		margin-right: 0%;
 		padding-bottom:60px;
 		padding-top: 0px; /* 60px to make the container go all the way to the bottom of the topbar */
 	}
 	.jumbotron {
-		padding: 30px;
+		padding: 50px;
 		margin-bottom: 30px;
 		line-height: 2.1428571435;
 	}
