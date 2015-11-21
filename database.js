@@ -20,7 +20,8 @@
       myFirebaseRef.child("location/city").on("value", function(snapshot) {
         alert(snapshot.val());  // Alerts "San Francisco"
       });
-      
+
   	</script>
+
   </body>
 </html>
