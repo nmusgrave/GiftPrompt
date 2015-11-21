@@ -9,6 +9,7 @@
       var button = document.getElementById("find");
 
       button.onclick = function() {
+        getData();
         setUserSenderPair("Ruchira", "Nitaya", ref, "pair1");
         createPreferenceList(ref, "puppies", []);
       };
@@ -52,7 +53,7 @@
         var temp = JSON.parse(text);
         var results = temp.result;
         for (var i = 0; i < results.length; i++) {
-          var obj = results[i]
+          var obj = results[i];
           var item = {
             "name": obj.Title,
             "listing_id":obj.listing_id,
@@ -70,12 +71,12 @@
       var allMusic = [];
       // Liked pages on Facebook
       FB.api('/me?fields=likes', function(response) {
-        var allLikes = [];
+        //var allLikes = [];
         //for (var i = 0; i < response.data.length; ++i) {
         //    allLikes.push(response.data[i].name);
         //}  
-        allLikes.push(response.data[0].name);
-        console.log("All the things liked by me are: " + allLikes);
+        allLikes.push(response.data[0].likes.data[0].name);
+        console.log("All the things liked by me are: " + response.data[0].likes.data[0].name);
       });
       FB.api('/me?fields=name', function(response) {
         //for (var i = 0; i < response.data.length; ++i) {
