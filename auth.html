@@ -8,6 +8,7 @@
 
     <script>
       var ref = new Firebase("https://giftprompt.firebaseio.com");
+      ref.authWithCustomToken("qJNIiKwur0D30OLRB5wAkjc8Incffqv8jyt1C5cV", authHandler);
       var authClient = new FirebaseSimpleLogin(ref, function(error, user) { 
           if (user) {
             // the access token will allow us to make Open Graph API calls
