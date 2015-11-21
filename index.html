@@ -53,6 +53,12 @@
         }
       }
 
+      ref.authWithOAuthPopup("facebook", authHandler);
+      ref.authWithOAuthRedirect("facebook", authHandler);
+      ref.unauth();
+    </script> 
+
+    <!-- 
       ref.authWithCustomToken("qJNIiKwur0D30OLRB5wAkjc8Incffqv8jyt1C5cV", authHandler);
 
 
@@ -67,7 +73,7 @@
         rememberMe: true,
         scope: 'email,user_likes'
       });
-    </script>
+    </script> -->
 
 <!--
     <script>
