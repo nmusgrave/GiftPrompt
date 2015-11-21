@@ -42,21 +42,7 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/MainCtrl.js"></script>
 
-    <script>
-      var ref = new Firebase("https://giftprompt.firebaseio.com");
-
-      function authHandler(error, authData) {
-        if (error) {
-          console.log("Login Failed!", error);
-        } else {
-          console.log("Authenticated successfully with payload:", authData);
-        }
-      }
-
-      ref.authWithOAuthPopup("facebook", authHandler);
-      ref.authWithOAuthRedirect("facebook", authHandler);
-      ref.unauth();
-    </script> 
+    <script src="fb_auth.js"></script>
 
     <!-- 
       ref.authWithCustomToken("qJNIiKwur0D30OLRB5wAkjc8Incffqv8jyt1C5cV", authHandler);
