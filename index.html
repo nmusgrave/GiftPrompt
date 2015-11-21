@@ -68,7 +68,7 @@
                 FB.init({
                     appId      : '1649122972042642',
                     xfbml      : true,
-                    version    : 'v2.2'
+                    version    : 'v2.5'
                 });
                 FB.getLoginStatus(function(response) {
                     statusChangeCallback(response);
@@ -85,6 +85,13 @@
             }(document, 'script', 'facebook-jssdk'));   
           
         </script>
+
+        <div
+          class="fb-like"
+          data-share="true"
+          data-width="450"
+          data-show-faces="true">
+        </div>
         
         <button id = "find">Find likes</button> </div>
 
