@@ -6,13 +6,22 @@
       ref.set({"SecretSanta": "pairs",
         "PreferenceList":"something"});
 
-      var button = document.getElementById("find");
+        //makeCorsRequest();
+        var keywords = "puppies"; //should be a list of keywords from user's wishlist
+       var url = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords=" + keywords;
 
-      button.onclick = function() {
-        getData();
+        Algorithmia.client("simmu9laYu4dT17Nqw0gunn+LH31")
+           .algo("algo://util/Url2Text/0.1.4")
+           .pipe(url)
+           .then(function(output) {
+             //console.log(output.result);
+             var out = parseJSONFromEtsy(output.result);
+             console.log(out);
+           });
+
         setUserSenderPair("Ruchira", "Nitaya", ref, "pair1");
         createPreferenceList(ref, "puppies", []);
-      };
+    
     };
 
     // Creates a secret santa pair for the group of users
@@ -34,21 +43,61 @@
       });
     }
 
-    function getData(){
-      var keywords = "puppies"; //should be a list of keywords from user's wishlist
-      var base = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords" + keywords;
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.onload = parseJSONFromEtsy;
-      xmlHttp.open("GET", base, true); 
-      xmlHttp.send();
-      return xmlHttp.responseText;
-    }
+    // Create the XHR object.
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+    xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin");
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+    xhr.setRequestHeader("Access-Control-Allow-Headers", "Origin");
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+
+// Make the actual CORS request.
+function makeCorsRequest() {
+  // All HTML5 Rocks properties support CORS.
+  var keywords = "puppies"; //should be a list of keywords from user's wishlist
+  var url = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords=" + keywords;
+
+  Algorithmia.client("simmu9laYu4dT17Nqw0gunn+LH31")
+           .algo("algo://util/Url2Text/0.1.4")
+           .pipe(url)
+           .then(function(output) {
+             console.log(output["result"]);
+           });
+  alert("in make cors request");
+  var xhr = createCORSRequest('GET', url);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = parseJSONFromEtsy;
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
+}
 
     // Parses the response text from the etsy queries
-    function parseJSONFromEtsy() {
+    function parseJSONFromEtsy(text) {
       var gifts = [];
-      if(status == 200){
-        var text = this.responseText;
+      //if(status == 200){
+        //var text = this.responseText;
         console.log(text);
         var temp = JSON.parse(text);
         var results = temp.result;
@@ -61,7 +110,7 @@
             "price": obj.price
           };
           gifts.push(item);
-        }
+        //}
         return gifts;
       }
     }
