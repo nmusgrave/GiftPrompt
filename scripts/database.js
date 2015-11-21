@@ -53,7 +53,7 @@
         var temp = JSON.parse(text);
         var results = temp.result;
         for (var i = 0; i < results.length; i++) {
-          var obj = results[i]
+          var obj = results[i];
           var item = {
             "name": obj.Title,
             "listing_id":obj.listing_id,
