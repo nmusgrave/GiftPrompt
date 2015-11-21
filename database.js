@@ -5,8 +5,22 @@
   </head>
   <body>
   	<script>
+      var Firebase = require("firebase");
   		var myDataRef = new Firebase('https://ddkdnxfkxi3.firebaseio-demo.com/');
-  		myDataRef.set('User ' + name + ' says ' + text);
+      myFirebaseRef.set({
+          title: "Hello World!",
+          author: "Firebase",
+          location: {
+          city: "San Francisco",
+          state: "California",
+          zip: 94103
+        }
+      });
+
+      myFirebaseRef.child("location/city").on("value", function(snapshot) {
+        alert(snapshot.val());  // Alerts "San Francisco"
+      });
+      
   	</script>
   </body>
 </html>
