@@ -10,7 +10,6 @@ function authHandler(error, authData) {
 }
 
 ref.authWithOAuthPopup("facebook", authHandler);
-ref.authWithOAuthRedirect("facebook", authHandler);
 
 // we would probably save a profile when we register new users on our site
 // we could also read the profile to see if it's null
