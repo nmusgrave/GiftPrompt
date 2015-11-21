@@ -1,27 +1,33 @@
-<html>
-  <head>
-   	<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-   	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-  </head>
-  <body>
-  	<script>
-      var Firebase = require("firebase");
-  		var myDataRef = new Firebase('https://ddkdnxfkxi3.firebaseio-demo.com/');
-      myFirebaseRef.set({
-          title: "Hello World!",
-          author: "Firebase",
-          location: {
-          city: "San Francisco",
-          state: "California",
-          zip: 94103
-        }
+(function(){
+    "use strict";
+    window.onload = function(){
+      //gets the list of names in the social security database
+      var ref = new Firebase('https://giftprompt.firebaseio.com/');
+      var button = document.getElementById("add");
+      button.onclick = function() {
+        setUserSenderPair("Ruchira", "Nitaya", ref, "pair1");
+      };
+    };
+
+
+    function setUserSenderPair(sender, receiver, ref, pair_num) {
+      var pair = {"sender": sender, "receiver": receiver}
+      ref.set({"SecretSanta": "pairs"});
+      ref.push({
+          "pair1": {"sender": "Ruchira", "receiver": "Nitaya"}
+      });
+      ref.push({
+        "pair2": {"sender": "Nitaya", "receiver": "Pooja"}
+      });
+      ref.push({
+        "pair3": {"sender": "Pooja", "receiver": "Naomi"}
+      });
+      ref.push({
+        "pair4": {"sender": "Naomi", "receiver": "Ruchira"}
       });
 
-      myFirebaseRef.child("location/city").on("value", function(snapshot) {
-        alert(snapshot.val());  // Alerts "San Francisco"
+      ref.child("pair1").on("value", function(snapshot) {
+        alert(snapshot.val());
       });
-
-  	</script>
-
-  </body>
-</html>
+    }
+ })();       
