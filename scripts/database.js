@@ -62,6 +62,9 @@ function makeCorsRequest() {
     return;
   }
 
+  if (xhr == null) {
+    alert("xhr was null");
+  }
   // Response handlers.
   xhr.onload = parseJSONFromEtsy;
 
