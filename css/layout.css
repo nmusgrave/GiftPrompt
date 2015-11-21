@@ -7,6 +7,9 @@
 
 
 /* CIRCLES ----------- */
+.logo .mask { background-color: white; width: 100px; height:100px;}
+.logo .mask { -webkit-mask-image: url('../images/christmas-icon-gift.png'); }
+
 svg {
 	height: 200px;
 }
