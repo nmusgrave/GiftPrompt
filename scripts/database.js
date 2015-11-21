@@ -14,8 +14,8 @@
            .algo("algo://util/Url2Text/0.1.4")
            .pipe(url)
            .then(function(output) {
-             console.log(output);
-             var out = parseJSONFromEtsy(output);
+             console.log(output.result);
+             var out = parseJSONFromEtsy(output.result);
              console.log(out);
            });
 
@@ -74,7 +74,7 @@ function makeCorsRequest() {
            .algo("algo://util/Url2Text/0.1.4")
            .pipe(url)
            .then(function(output) {
-             console.log(output);
+             console.log(output["result"]);
            });
   alert("in make cors request");
   var xhr = createCORSRequest('GET', url);
