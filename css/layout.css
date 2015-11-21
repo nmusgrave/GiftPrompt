@@ -1,66 +1,10 @@
 /* SECTIONS ----------- */
-body {
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	line-height: 1.428571429;
-	color: grey;
-	background-color: white;
-}
 .container {
-	margin-right: auto;
-	margin-left: auto;
-}
-img.img-responsive {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 20px;
-	width:100%;
-}
-.jumbotron {
-	font-size: 21px;
-	font-weight: 200;
-	color: inherit;
-	background-color: #D2E4D2;
+	margin-right: 0px;
+	margin-left: 0px;
+	width: 100%;
 }
 
-
-/* BUTTONS ----------- */
-.btn {
-	display: inline-block;
-	padding: 6px 12px;
-	margin-bottom: 0;
-	font-size: 14px;
-	font-weight: normal;
-	line-height: 1.428571429;
-	text-align: center;
-	vertical-align: middle;
-	cursor: pointer;
-	border: 1px solid transparent;
-	border-radius: 4px;
-	white-space: nowrap;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	-o-user-select: none;
-	user-select: none;
-}
-.btn:focus {
-	outline: thin dotted #333;
-	outline: 5px auto -webkit-focus-ring-color;
-	outline-offset: -2px;
-}
-.btn:hover,
-.btn:focus {
-	background-color:green;
-	color: #006600;
-	text-decoration: none;
-}
-.btn-success {
-	color: #ffffff;
-	background-color: #5cb85c;
-	border-color: #4cae4c;
-}
 
 /* CIRCLES ----------- */
 svg {
@@ -185,7 +129,7 @@ and (min-width : 1023px) {
 		line-height: 2.1428571435;
 	}
 	.container {
-		padding: 50px;
+		padding: 0px;
 	}
 }
 
