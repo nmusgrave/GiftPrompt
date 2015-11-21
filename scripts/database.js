@@ -14,7 +14,7 @@
            .algo("algo://util/Url2Text/0.1.4")
            .pipe(url)
            .then(function(output) {
-             console.log(output.result);
+             //console.log(output.result);
              var out = parseJSONFromEtsy(output.result);
              console.log(out);
            });
