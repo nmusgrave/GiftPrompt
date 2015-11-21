@@ -1,7 +1,8 @@
 // create the controller and inject Angular's $scope
 app.controller('SignInCtrl', function($scope) {
   // create a message to display in our view
-  $scope.message = 'angular-msg-here';
+  $scope.header = 'Secret Santa';
+  $scope.create = 'Create Group'
   
   $scope.dir = 'images';
   $scope.horizontal = [ 'gorgeB&W.jpg','IMG4029.JPG' ];
