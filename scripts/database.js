@@ -6,13 +6,10 @@
       ref.set({"SecretSanta": "pairs",
         "PreferenceList":"something"});
 
-      var button = document.getElementById("find");
-
-      button.onclick = function() {
         getData();
         setUserSenderPair("Ruchira", "Nitaya", ref, "pair1");
         createPreferenceList(ref, "puppies", []);
-      };
+    
     };
 
     // Creates a secret santa pair for the group of users
