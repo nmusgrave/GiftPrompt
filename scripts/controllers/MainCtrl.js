@@ -8,7 +8,7 @@ app.controller('MainCtrl', function($scope) {
   $scope.vertical = [ 'road.jpg', 'trees.jpg', 'IMG3722.JPG', 'IMG4027.JPG' ];
 
   var init = function() {
-    
+    console.log("hello")
   };
   
   init();
