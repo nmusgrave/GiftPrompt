@@ -5,7 +5,7 @@ app.config(function($routeProvider) {
   $routeProvider
 
     .when('/', {
-            templateUrl : 'views/main.html',
-            controller  : 'MainCtrl'
+            templateUrl : 'views/signin.html',
+            controller  : 'SignInCtrl'
     })
 });
