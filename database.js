@@ -5,7 +5,7 @@
       var ref = new Firebase('https://giftprompt.firebaseio.com/');
       ref.set({"SecretSanta": "pairs",
         "PreferenceList":"something"});
-      var button = document.getElementById("add");
+      var button = document.getElementById("find");
       button.onclick = function() {
         setUserSenderPair("Ruchira", "Nitaya", ref, "pair1");
         createPreferenceList(ref);
@@ -34,9 +34,10 @@
 
     function createPreferenceList(ref){
       var pair = ref.child("PreferenceList");
+      var temp = ["toys", "paper plates"];
       var newPostRef = pair.push();
       newPostRef.set({
-          "1": {"receiver": "Ruchira", "gifts": ["toys", "paper plates"]},
+          "1": {"receiver": "Ruchira", "gifts": temp},
           "2": {"receiver": "Nitaya", "gifts": ["ipod", "puppy"]},
           "3": {"receiver": "Pooja", "gifts": ["another toy", "spoons", "turkey"]},
           "4": {"receiver": "Naomi", "gifts": ["toy", "bananas","apples"]}

@@ -34,9 +34,10 @@
 
     function createPreferenceList(ref){
       var pair = ref.child("PreferenceList");
+      var temp = ["123", "456", "789"];
       var newPostRef = pair.push();
       newPostRef.set({
-          "1": {"receiver": "Ruchira", "gifts": ["toys", "paper plates"]},
+          "1": {"receiver": "Ruchira", "gifts": temp},
           "2": {"receiver": "Nitaya", "gifts": ["ipod", "puppy"]},
           "3": {"receiver": "Pooja", "gifts": ["another toy", "spoons", "turkey"]},
           "4": {"receiver": "Naomi", "gifts": ["toy", "bananas","apples"]}
