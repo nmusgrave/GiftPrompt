@@ -100,6 +100,8 @@ function makeCorsRequest() {
         //var text = this.responseText;
         console.log(text);
         var temp = JSON.parse(text);
+        alert(temp["count"]);
+        alert(temp.results[0]["listing_id"]);
         var results = temp.result;
         for (var i = 0; i < results.length; i++) {
           var obj = results[i];
