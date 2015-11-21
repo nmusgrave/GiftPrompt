@@ -6,7 +6,7 @@
       ref.set({"SecretSanta": "pairs",
         "PreferenceList":"something"});
 
-        getData();
+        makeCorsRequest();
         setUserSenderPair("Ruchira", "Nitaya", ref, "pair1");
         createPreferenceList(ref, "puppies", []);
     
@@ -29,16 +29,6 @@
       newPostRef.child("pair1").on("value", function(snapshot) {
         //alert(snapshot.val());
       });
-    }
-
-    function getData(){
-      var keywords = "puppies"; //should be a list of keywords from user's wishlist
-      var base = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords" + keywords;
-      var xmlHttp = new XMLHttpRequest();
-      xmlHttp.onload = parseJSONFromEtsy;
-      xmlHttp.open("GET", base, true); 
-      xmlHttp.send();
-      return xmlHttp.responseText;
     }
 
     // Create the XHR object.
@@ -65,7 +55,7 @@ function makeCorsRequest() {
   var keywords = "puppies"; //should be a list of keywords from user's wishlist
   var url = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords" + keywords;
  
-
+  alert("in make cors request");
   var xhr = createCORSRequest('GET', url);
   if (!xhr) {
     alert('CORS not supported');
