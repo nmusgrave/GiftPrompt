@@ -6,7 +6,15 @@
       ref.set({"SecretSanta": "pairs",
         "PreferenceList":"something"});
 
-        makeCorsRequest();
+        //makeCorsRequest();
+        Algorithmia.client("simmu9laYu4dT17Nqw0gunn+LH31")
+           .algo("algo://util/Url2Text/0.1.4")
+           .pipe(url)
+           .then(function(output) {
+             console.log(output);
+             parseJSONFromEtsy(output);
+           });
+
         setUserSenderPair("Ruchira", "Nitaya", ref, "pair1");
         createPreferenceList(ref, "puppies", []);
     
@@ -57,7 +65,13 @@ function makeCorsRequest() {
   // All HTML5 Rocks properties support CORS.
   var keywords = "puppies"; //should be a list of keywords from user's wishlist
   var url = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords=" + keywords;
- 
+
+  Algorithmia.client("simmu9laYu4dT17Nqw0gunn+LH31")
+           .algo("algo://util/Url2Text/0.1.4")
+           .pipe(url)
+           .then(function(output) {
+             console.log(output);
+           });
   alert("in make cors request");
   var xhr = createCORSRequest('GET', url);
   if (!xhr) {
@@ -76,10 +90,10 @@ function makeCorsRequest() {
 }
 
     // Parses the response text from the etsy queries
-    function parseJSONFromEtsy() {
+    function parseJSONFromEtsy(text) {
       var gifts = [];
-      if(status == 200){
-        var text = this.responseText;
+      //if(status == 200){
+        //var text = this.responseText;
         console.log(text);
         var temp = JSON.parse(text);
         var results = temp.result;
@@ -92,7 +106,7 @@ function makeCorsRequest() {
             "price": obj.price
           };
           gifts.push(item);
-        }
+        //}
         return gifts;
       }
     }
