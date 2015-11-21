@@ -53,7 +53,7 @@ function createCORSRequest(method, url) {
 function makeCorsRequest() {
   // All HTML5 Rocks properties support CORS.
   var keywords = "puppies"; //should be a list of keywords from user's wishlist
-  var url = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords" + keywords;
+  var url = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords=" + keywords;
  
   alert("in make cors request");
   var xhr = createCORSRequest('GET', url);
@@ -62,9 +62,6 @@ function makeCorsRequest() {
     return;
   }
 
-  if (xhr == null) {
-    alert("xhr was null");
-  }
   // Response handlers.
   xhr.onload = parseJSONFromEtsy;
 
