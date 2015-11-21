@@ -9,4 +9,5 @@ TBD
 
 ## Running Locally
 $ python -m SimpleHTTPServer
+
 and go to http://0.0.0.0:8000/
