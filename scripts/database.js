@@ -41,6 +41,47 @@
       return xmlHttp.responseText;
     }
 
+    // Create the XHR object.
+function createCORSRequest(method, url) {
+  var xhr = new XMLHttpRequest();
+  if ("withCredentials" in xhr) {
+    // XHR for Chrome/Firefox/Opera/Safari.
+    xhr.open(method, url, true);
+  } else if (typeof XDomainRequest != "undefined") {
+    // XDomainRequest for IE.
+    xhr = new XDomainRequest();
+    xhr.open(method, url);
+  } else {
+    // CORS not supported.
+    xhr = null;
+  }
+  return xhr;
+}
+
+
+// Make the actual CORS request.
+function makeCorsRequest() {
+  // All HTML5 Rocks properties support CORS.
+  var keywords = "puppies"; //should be a list of keywords from user's wishlist
+  var url = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords" + keywords;
+ 
+
+  var xhr = createCORSRequest('GET', url);
+  if (!xhr) {
+    alert('CORS not supported');
+    return;
+  }
+
+  // Response handlers.
+  xhr.onload = parseJSONFromEtsy;
+
+  xhr.onerror = function() {
+    alert('Woops, there was an error making the request.');
+  };
+
+  xhr.send();
+}
+
     // Parses the response text from the etsy queries
     function parseJSONFromEtsy() {
       var gifts = [];

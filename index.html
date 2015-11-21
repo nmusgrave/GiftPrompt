@@ -121,8 +121,6 @@
     FB.api('/me', function(response) {
       window.location.replace("http://naomimusgrave.com/GiftPrompt/#/main");  
       console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
     });
   }
 </script>
