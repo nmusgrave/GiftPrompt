@@ -7,12 +7,16 @@
         "PreferenceList":"something"});
 
         //makeCorsRequest();
+        var keywords = "puppies"; //should be a list of keywords from user's wishlist
+       var url = "https://openapi.etsy.com/v2/listings/active?api_key=xrj8aykbzt567hxwuea4suso&keywords=" + keywords;
+
         Algorithmia.client("simmu9laYu4dT17Nqw0gunn+LH31")
            .algo("algo://util/Url2Text/0.1.4")
            .pipe(url)
            .then(function(output) {
              console.log(output);
-             parseJSONFromEtsy(output);
+             var out = parseJSONFromEtsy(output);
+             console.log(out);
            });
 
         setUserSenderPair("Ruchira", "Nitaya", ref, "pair1");
