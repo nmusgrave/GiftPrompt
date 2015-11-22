@@ -1,39 +1,29 @@
 <!-- NAV BAR -->
 <nav class="green lighten-2" role="navigation" style="width:100%">
   <div class="nav-wrapper container" style="padding-left:30px; padding-right:30px">
-    <a id="logo-container" href="#" class="brand-logo">
+    <a id="logo-container" href="#/main" class="brand-logo">
       <div style="transform:scale(0.5); width:100px; float:left; margin-top:-23px">
         <div class="logo"><div class="mask"></div></div>
       </div>
       {{header}}
     </a>
     <ul class="right hide-on-med-and-down">
-      <li>{{create}}</li>
+      <a href="#/main"><li>{{create}}</li></a>
     </ul>
-
-    <ul id="nav-mobile" class="side-nav">
-      <li><a href="#">Navbar Link</a></li>
-    </ul>
-    <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
-  </div>
 </nav>
 
 <!-- BANNER -->
 <div class="section no-pad-bot" id="index-banner">
   <div class="container">
     <br><br>
-    <h1 class="header center white-text">Starter Template</h1>
+    <h1 class="header center white-text" style="font-family: 'League Script', cursive; font-size:800%">happy holidays</h1>
     <div class="row center">
-      <h5 class="header col s12 light">A modern responsive front-end framework based on Material Design</h5>
+      <h5 class="header col s12 light">form and join secret santa groups, and easily shop for recipients</h5>
     </div>
-    <div class="row center">
-      <a href="http://materializecss.com/getting-started.html" id="download-button" class="btn-large waves-effect waves-light orange">Get Started</a>
-    </div>
-
     <br><br>
-
   </div>
 </div>
+
 
 <div class="container" style="padding-left:5vw; padding-right:5vw">
   <div class="section">
@@ -43,16 +33,16 @@
       <div class="col s12 m6" style="padding: 20px">
         <div ng-repeat="group in pending">
 
-        <div class="card-panel green">
+        <div class="card-panel green" ng-show="showPotential">
           <span class="white-text">
-            <div style="position: relative;">
+            <div style="position: relative;" ng-show="showReply">
               <div class="fixed-action-btn horizontal" style="position: absolute; display: inline-block; top:-13px; right: 24px;">
                 <a class="btn-floating btn-large red darken-3">
                   <i class="large material-icons">reply</i>
                 </a>
                 <ul>
-                  <li><a class="btn-floating blue darken-3"><i class="material-icons">add</i></a></li>
-                  <li><a class="btn-floating yellow darken-3"><i class="material-icons">clear</i></a></li>
+                  <li><a class="btn-floating blue darken-3" ng-click="showReply = !showReply"><i class="material-icons">add</i></a></li>
+                  <li><a class="btn-floating yellow darken-3" ng-click="showPotential = !showPotential"><i class="material-icons">clear</i></a></li>
                 </ul>
               </div>
             </div>
@@ -66,7 +56,7 @@
       <div ng-repeat="person in paired">
         <div class="card small">
           <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="images/lights{{person.group%4}}.jpg">
+            <img class="activator" src="images/lights{{person.group%3}}.jpg">
           </div>
           <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">Group {{person.group}}<i class="material-icons right">more_vert</i></span>
@@ -75,6 +65,7 @@
           <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">{{person.name}}<i class="material-icons right">close</i></span>
             <p>They like {{person.preferences}}.</p>
+            <p> // etsy reccomendations // </p>
           </div>
         </div>
       </div>
@@ -85,6 +76,7 @@
 </div>
 
 <!-- FOOTER -->
+<!--
 <footer class="page-footer orange">
   <div class="container">
     <div class="row">
@@ -118,4 +110,5 @@
     </div>
   </div>
 </footer>
+-->
 

@@ -3,6 +3,8 @@ app.controller('MainCtrl', function($scope) {
   // create a message to display in our view
   $scope.header = 'GiftPrompt';
   $scope.create = 'Create Group'
+  $scope.showPotential = true;
+  $scope.showReply = true;
   
   $scope.pending = [
   	{group:1, creator:'Bing Crosby', deadline:'Dec. 5', size:2},
