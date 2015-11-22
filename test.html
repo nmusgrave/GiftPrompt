@@ -1,55 +1,11 @@
-<!doctype html>
-<html class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <title>Naomi Musgrave</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
-    <link rel="shortcut icon" href="favicon.ico" />
-
-    <!-- Supporting stylesheets -->
-    <link rel="stylesheet" href="bootstrap-3.2.0-dist/css/bootstrap.min.css" >
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <!-- Style for app -->
-    <link href="angular-materialize/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="angular-materialize/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="css/layout.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href='https://fonts.googleapis.com/css?family=League+Script' rel='stylesheet' type='text/css'>
-
-  </head>
-  <body class="red lighten-1" ng-app="app">
-    
-
-    <div class="container" style="width:100%; margin-left:0px; margin-right:0px; max-width:none">
-      <!-- body -->
-      <div ng-view class="wrapper"></div>
-    </div>
-
-    <!-- Materialize-Angular Supporting Scripts -->
-    <script src="//algorithmia.com/v1/clients/js/algorithmia-0.2.0.js" type="text/javascript"></script>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-    <script type="text/javascript" src="angular-materialize/src/angular-materialize.js"></script>
-    <script src="scripts/vendor/angular-ui-bootstrap.js"></script>
-    <script src="scripts/vendor/angular-route.js"></script>
-
-    <!-- Firebase Scripts -->
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-
-    <!-- Controllers -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/MainCtrl.js"></script>
-
-    <script src="scripts/database.js"></script>
-   
-    <script>
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
     console.log('statusChangeCallback');
@@ -123,8 +79,9 @@
   function testAPI() {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
-      window.location.replace("http://naomimusgrave.com/GiftPrompt/#/main");  
       console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
     });
   }
 </script>
@@ -140,6 +97,6 @@
 
 <div id="status">
 </div>
-    
+
 </body>
 </html>

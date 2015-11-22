@@ -18,7 +18,6 @@ app.controller('MainCtrl', function($scope) {
   	{name:'Frank Sinatra', preferences:'microphones', group:6},
   	{name:'Doris Day', preferences:'perfume', group:7}
   ]
-
   var init = function() {
   	for (var i = $scope.paired.length - 1; i >= 0; i--) {
   		console.log($scope.paired[i])
